@@ -1,0 +1,40 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT DISTINCT ON (participant_actions.user_id) users.wallet_address, users.name, participant_actions.created_at, action as \"action: _\" FROM participant_actions JOIN users ON participant_actions.user_id = users.id WHERE participant_actions.game_id = $1 ORDER BY participant_actions.user_id, participant_actions.created_at DESC",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "wallet_address",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 1,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 3,
+        "name": "action: _",
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "00cf95ce02eb713dc78c6c6da9d38e2598e7658ec7148d6496dd20787f9dad21"
+}

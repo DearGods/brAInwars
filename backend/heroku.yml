@@ -1,0 +1,7 @@
+build:
+  docker:
+    web: Dockerfile
+  config:
+    BASE_PATH: "app/backend"
+    ASSETS_DIR: "app/backend/assets"
+    VITE_DIR: "app/frontend/dist"

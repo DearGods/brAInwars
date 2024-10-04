@@ -1,0 +1,93 @@
+# https://github.com/LukeMathWalker/zero-to-production/blob/main/.github/workflows/general.yml
+name: Build and format
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - master
+
+env:
+  NODE_VERSION: 18.17.1
+  RUSTC_VERSION: 1.75.0
+  SQLX_OFFLINE: true
+  SQLX_OFFLINE_DIR: .sqlx
+  CARGO_TERM_COLOR: always
+  SQLX_VERSION: 0.6.3
+  SQLX_FEATURES: "rustls,postgres"
+  DATABASE_URL: postgres://postgres:password@localhost:5555/brain-wars
+  BASE_PATH: ./
+  APP_ENVIRONMENT: production
+  ASSETS_DIR: ./assets
+  VITE_DIR: ./frontend/dist
+  WALLET_MNEMONIC: snack immense velvet fun stick kingdom undo cross blouse return quote regular
+
+jobs:
+  test:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUSTC_VERSION }}
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: build-sqlx-${{ env.SQLX_VERSION }}
+          cache-all-crates: true
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "yarn"
+          cache-dependency-path: yarn.lock
+      - name: Install sqlx-cli
+        run: cargo install sqlx-cli
+          --version=${{ env.SQLX_VERSION }}
+          --features ${{ env.SQLX_FEATURES }}
+          --no-default-features
+          --locked
+      - name: Run build rust
+        run: cargo build
+      - name: Run build frontend
+        run: |
+          yarn install
+  fmt:
+    name: Rustfmt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUSTC_VERSION }}
+          components: rustfmt
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: rustfmt-sqlx-${{ env.SQLX_VERSION }}
+          cache-all-crates: true
+      - name: Enforce formatting
+        run: cargo fmt --check
+
+  clippy:
+    name: Clippy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUSTC_VERSION }}
+          components: clippy
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: clippy-sqlx-${{ env.SQLX_VERSION }}
+          cache-all-crates: true
+      - name: Install sqlx-cli
+        run: cargo install sqlx-cli
+          --version=${{ env.SQLX_VERSION }}
+          --features ${{ env.SQLX_FEATURES }}
+          --no-default-features
+          --locked
+      - name: Linting
+        run: cargo clippy -- -D warnings

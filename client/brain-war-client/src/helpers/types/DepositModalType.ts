@@ -1,0 +1,6 @@
+export enum DepositModal {
+	MISSING_MONEY = 'MISSING_MONEY',
+	ADDING_MONEY = 'ADDING_MONEY',
+	WITHDRAW = 'WITHDRAW',
+	CLOSED = 'CLOSED'
+}

@@ -1,0 +1,12 @@
+target/
+tests/
+Dockerfile
+scripts/
+coverage/
+app/backend/coverage/
+app/frontend/dist/
+app/frontend/node_modules/
+node_modules
+.anchor/
+.github/
+

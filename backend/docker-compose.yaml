@@ -1,0 +1,45 @@
+version: "3.9"
+services:
+  postgres-db:
+    image: postgres:15.3-alpine3.18
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=brain-wars
+      - POSTGRES_PORT=5555
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "brain-wars"]
+      start_period: 5s
+      interval: 5s
+    networks:
+      - brain-wars-network
+
+  brain-wars-migrate:
+    build:
+      context: .
+    image: brain-wars
+    command: ["migrate", "--retry", "10", "--retry-delay", "2"]
+    environment:
+      - APP_DATABASE__HOST=postgres-db
+    depends_on:
+      - postgres-db
+    networks:
+      - brain-wars-network
+
+  brain-wars:
+    build:
+      context: .
+    image: brain-wars
+    command: ["serve"]
+    environment:
+      - APP_DATABASE__HOST=postgres-db
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres-db
+    networks:
+      - brain-wars-network
+
+networks:
+  brain-wars-network:
+    driver: bridge

@@ -1,0 +1,57 @@
+{
+  "name": "brain-war-client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@badrap/result": "0.2.13",
+    "@coral-xyz/anchor": "0.29.0",
+    "@metaplex-foundation/beet-solana": "0.4.1",
+    "@metaplex-foundation/solita": "0.20.1",
+    "@solana/spl-token": "0.3.11",
+    "@solana/web3.js": "1.89.1",
+    "assert": "2.1.0",
+    "axios": "1.6.7",
+    "bs58": "5.0.0",
+    "buffer": "6.0.3",
+    "core-js": "3.35.1",
+    "crypto-browserify": "3.12.0",
+    "keccak256": "1.0.6",
+    "pino": "8.18.0",
+    "register-service-worker": "1.7.2",
+    "stream-browserify": "3.0.0",
+    "vue": "3.4.15",
+    "vue-router": "4.2.5",
+    "vue3-toastify": "^0.2.1",
+    "vuex": "4.1.0"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.1.5",
+    "@typescript-eslint/eslint-plugin": "6.19.1",
+    "@typescript-eslint/parser": "6.19.1",
+    "@vue/cli-plugin-babel": "5.0.8",
+    "@vue/cli-plugin-pwa": "5.0.8",
+    "@vue/cli-plugin-router": "5.0.8",
+    "@vue/cli-plugin-typescript": "5.0.8",
+    "@vue/cli-plugin-vuex": "5.0.8",
+    "@vue/cli-service": "5.0.8",
+    "@vue/eslint-config-typescript": "12.0.0",
+    "eslint": "8.56.0",
+    "eslint-plugin-vue": "9.20.1",
+    "lint-staged": "15.2.0",
+    "prettier": "3.2.4",
+    "process": "0.11.10",
+    "sass": "1.70.0",
+    "sass-loader": "14.0.0",
+    "typescript": "5.3.3",
+    "vue-cli-plugin-vuetify": "2.5.8",
+    "webpack": "5.90.0"
+  },
+  "globals": {
+    "brainWar": true
+  }
+}

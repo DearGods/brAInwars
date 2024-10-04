@@ -1,0 +1,50 @@
+:root {
+  --darkBlue: #000110;
+  --darkBlueTrans: #000110f1;
+  --lightBlue: #6deeff;
+  --lightBlueHalfTrans: #6deeffaa;
+  --lightBlueTrans: #6deeff22;
+  --golden: #fff094;
+  --white: #e0ded2;
+  --whiteTrans: #e0ded2aa;
+}
+
+.dark_background {
+  background-color: var(--darkBlue);
+}
+
+.dark_background_trans {
+  background-color: var(--darkBlueTrans);
+}
+
+.light_background {
+  background-color: var(--lightBlue);
+}
+
+.light_background_trans {
+  background-color: var(--lightBlueTrans);
+}
+
+.white_background {
+  background-color: var(--white);
+}
+
+.white_background_trans {
+  background-color: var(--whiteTrans);
+}
+
+.dark_text {
+  color: var(--darkBlue);
+}
+
+.light_text {
+  color: var(--lightBlue);
+}
+
+.white_text {
+  color: var(--white);
+}
+
+.golden_text {
+  color: var(--golden);
+}

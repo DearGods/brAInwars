@@ -1,0 +1,31 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO games\n        (\n        id,\n        created_at, \n        game_id, \n        entry_fee,\n        mint, \n        start_time, \n        waiting_for_players_start_time,\n        winner,\n        game_status, \n        wait_for_players_limit,\n        players_actions, \n        hashed_limit, \n        reveled_limit,\n        reveled_salt, \n        num_participants, \n        num_participants_left_game, \n        end_time, \n        mev_lock\n        )\n        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Timestamptz",
+        "Int8",
+        "Int8",
+        "Text",
+        "Int8",
+        "Int8",
+        "Text",
+        "Text",
+        "Int8",
+        "Text",
+        "Int8",
+        "Int8",
+        "Int8",
+        "Int8",
+        "Int8",
+        "Int8",
+        "Bool"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "fddfa5cd6e832a28aa3c23264fa0682ad7d0182216423d67aaf612b5de7c4041"
+}

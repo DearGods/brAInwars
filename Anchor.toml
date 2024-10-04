@@ -1,0 +1,26 @@
+[toolchain]
+anchor_version = "0.29.0"
+solana_version = "1.18.2"
+
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+brain_wars = "2yKYJeX7NDF6gSHANJqnxHuAuHuBx5Qf3s9oAmMpWzxh"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "devnet"
+wallet = "/Users/ohaddahan/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha --bail -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+fml = "echo 123"
+
+[test]
+startup_wait = 2000
+shutdown_wait = 1000
+upgradeable = false

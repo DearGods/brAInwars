@@ -1,0 +1,16 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE participants SET exit_time = $1 WHERE user_id = $2 AND game_id = $3",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Timestamptz",
+        "Uuid",
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "520954995cec64f1967abdefa34b87e95ae1de4f2474f32e95d7d025ce7eaaee"
+}

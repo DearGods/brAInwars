@@ -1,0 +1,53 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT id, created_at, user_id, game_id, action as \"action: _\", signature FROM participant_actions WHERE user_id = $1 AND game_id = $2 ORDER BY created_at DESC LIMIT 1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 2,
+        "name": "user_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 3,
+        "name": "game_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 4,
+        "name": "action: _",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "signature",
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "655a783160cc673be20cdeb51f81d7e0aaba27057afc402d718bcb732cdb1e58"
+}

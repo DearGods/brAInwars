@@ -1,0 +1,90 @@
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package]
+name = "backend"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+tracing-appender = { workspace = true }
+axum-extra = { workspace = true, features = ["typed-header"] }
+brain-wars = { workspace = true }
+http = { workspace = true }
+solana-client = { workspace = true }
+solana-program-test = { workspace = true }
+solana-sdk = { workspace = true }
+solana-rpc-client = { workspace = true, features = ["spinner"] }
+anchor-client = { workspace = true, features = ["async"] }
+anchor-lang = { workspace = true, features = ["init-if-needed"] }
+anchor-spl = { workspace = true, features = ["spl-associated-token-account", "spl-token", "metadata"] }
+typeshare = { workspace = true }
+axum = { workspace = true, features = ["ws", "macros"] }
+futures = { workspace = true }
+futures-util = { workspace = true, default-features = false, features = ["sink", "std"] }
+headers = { workspace = true }
+tokio = { workspace = true, features = ["full"] }
+tokio-tungstenite = { workspace = true }
+tower = { workspace = true, features = ["util"] }
+tower-http = { workspace = true, features = ["fs", "trace", "request-id", "util", "cors", "add-extension"] }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true, features = ["env-filter"] }
+chrono = { workspace = true, features = ["clock", "serde"] }
+async-trait = { workspace = true }
+config = { workspace = true }
+tracing-bunyan-formatter = { workspace = true }
+tracing-log = { workspace = true }
+serde-aux = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+dotenv = { workspace = true }
+reqwest = { workspace = true, default-features = false, features = [
+  "json",
+  "rustls-tls",
+  "cookies"
+] }
+serde_json = { workspace = true }
+axum-login = { workspace = true }
+tower-sessions-sqlx-store = { workspace = true, features = ["postgres"] }
+enum-iterator = { workspace = true }
+once_cell = { workspace = true }
+fake = { workspace = true, features = ["derive"] }
+
+[dependencies.rand]
+workspace = true
+features = ["min_const_gen"]
+
+[dependencies.sqlx]
+workspace = true
+default-features = false
+features = [
+  "any",
+  "runtime-tokio-rustls",
+  "macros",
+  "postgres",
+  "uuid",
+  "chrono",
+  "migrate",
+]
+
+[dependencies.uuid]
+workspace = true
+features = [
+  "v4", # Lets you generate random UUIDs
+  "fast-rng", # Use a faster (but still sufficiently random) RNG
+  "macro-diagnostics", # Enable better diagnostics for compile-time UUIDs
+  "serde", # Enable serialization/deserialization of UUIDs
+]
+
+[[bin]]
+name = "backend"
+path = "src/main.rs"
+
+[lib]
+crate-type = ["lib"]
+name = "backend_lib"
+path = "src/lib.rs"
+
+[features]
+my-test = []

@@ -1,0 +1,205 @@
+@font-face {
+  font-family: "main";
+  src: url("https://cdn.brainwars.win/NicoMoji-Regular.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: main;
+  letter-spacing: 1px;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.sp {
+  padding: 8px;
+}
+
+.spx {
+  padding: 0 8px;
+}
+
+.stp {
+  padding-top: 8px;
+}
+
+.mp {
+  padding: 12px;
+}
+
+.mpx {
+  padding: 0 12px;
+}
+
+.mtp {
+  padding-top: 12px;
+}
+
+.lp {
+  padding: 16px;
+}
+
+.lpx {
+  padding: 0 16px;
+}
+
+.ltp {
+  padding-top: 16px;
+}
+
+.sm {
+  margin: 8px;
+}
+
+.stm {
+  margin-top: 8px;
+}
+
+.srm {
+  margin-right: 8px;
+}
+
+.slm {
+  margin-left: 8px;
+}
+
+.sbm {
+  margin-bottom: 8px;
+}
+
+.mm {
+  margin: 12px;
+}
+
+.mtm {
+  margin-top: 12px;
+}
+
+.mrm {
+  margin-right: 12px;
+}
+
+.mlm {
+  margin-left: 12px;
+}
+
+.mbm {
+  margin-bottom: 12px;
+}
+
+.lm {
+  margin: 16px;
+}
+
+.ltm {
+  margin-top: 16px;
+}
+
+.lrm {
+  margin-right: 16px;
+}
+
+.llm {
+  margin-left: 16px;
+}
+
+.lbm {
+  margin-bottom: 16px;
+}
+
+.rounded {
+  border-radius: 12px;
+}
+
+.upppercase {
+  text-transform: uppercase;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.flex {
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.content_center {
+  justify-content: center;
+}
+
+.content_space_around {
+  justify-content: space-around;
+}
+
+.content_space_between {
+  justify-content: space-between;
+}
+
+.align_center {
+  align-items: center;
+}
+
+.text_center {
+  text-align: center;
+}
+
+.text_left {
+  text-align: left;
+}
+
+.text_right {
+  text-align: right;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.separator {
+  height: 2px;
+  width: 5%;
+  margin: 4px 0;
+  background-color: var(--darkBlue); /* Handle background color */
+}
+
+.ellipsis {
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* Track background color */
+}
+
+/* Customize the scrollbar handle */
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--lightBlueHalfTrans); /* Handle background color */
+  border-radius: 6px; /* Rounded corners */
+}
+
+/* On hover, make the scrollbar handle darker */
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--lightBlue);
+}

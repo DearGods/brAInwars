@@ -1,0 +1,9 @@
+application:
+  host: 127.0.0.1
+constants:
+  min_game_length: 3000
+  max_game_length: 10000
+  game_entries: [10.0, 20.0]
+  countdown_for_others_to_join: 1000
+  worker_interval: 1000
+  eth_rpc: http://127.0.0.1:7654

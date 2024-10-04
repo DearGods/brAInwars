@@ -1,0 +1,16 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "UPDATE participants SET status = $1 WHERE user_id = $2 AND game_id = $3",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Uuid",
+        "Uuid"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "952480ed7ea12b06abd5658a70defd53fec92e77b816f860914dd939875c0ac9"
+}

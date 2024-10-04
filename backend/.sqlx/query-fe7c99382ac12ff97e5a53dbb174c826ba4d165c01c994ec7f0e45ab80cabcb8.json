@@ -1,0 +1,124 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "SELECT\n        id,\n        created_at,\n        mint,\n        winner,\n        game_id as \"game_id: U64\",\n        entry_fee as \"entry_fee: U64\",\n        start_time as \"start_time: U64\",\n        waiting_for_players_start_time as \"waiting_for_players_start_time: U64\",\n        game_status as \"game_status: GameStatus\",\n        wait_for_players_limit as \"wait_for_players_limit: U64\",\n        players_actions,\n        hashed_limit as \"hashed_limit: Secret<U64>\",\n        reveled_limit as \"reveled_limit: Secret<U64>\",\n        reveled_salt as \"reveled_salt: Secret<U64>\",\n        num_participants as \"num_participants: U64\",\n        num_participants_left_game as \"num_participants_left_game: U64\",\n        end_time as \"end_time: U64\",\n        mev_lock\n        FROM games\n        WHERE game_status = $1\n        ORDER BY end_time ASC\n        LIMIT 1",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "created_at",
+        "type_info": "Timestamptz"
+      },
+      {
+        "ordinal": 2,
+        "name": "mint",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "winner",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "game_id: U64",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 5,
+        "name": "entry_fee: U64",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 6,
+        "name": "start_time: U64",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 7,
+        "name": "waiting_for_players_start_time: U64",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 8,
+        "name": "game_status: GameStatus",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 9,
+        "name": "wait_for_players_limit: U64",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 10,
+        "name": "players_actions",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 11,
+        "name": "hashed_limit: Secret<U64>",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 12,
+        "name": "reveled_limit: Secret<U64>",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 13,
+        "name": "reveled_salt: Secret<U64>",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 14,
+        "name": "num_participants: U64",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 15,
+        "name": "num_participants_left_game: U64",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 16,
+        "name": "end_time: U64",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 17,
+        "name": "mev_lock",
+        "type_info": "Bool"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false
+    ]
+  },
+  "hash": "fe7c99382ac12ff97e5a53dbb174c826ba4d165c01c994ec7f0e45ab80cabcb8"
+}
